@@ -3,7 +3,11 @@ GitFileTree-MergeDriver
 
 This is a merge driver for git. It handles merging conflict-prone files in FileTree, which are: monticello.meta/version, methodProperties.json and properties.json.
 
-How to make it work:
+## Note
+
+This version is a fork that embarks its own little version of the PharoVM for Centos6.5 as there is no such VM available at this moment.
+
+## How to make it work:
 
 Clone this repository (or get from here the Makefile and the merge script and put them in a folder). Run the following command in that folder:
 
@@ -151,11 +155,11 @@ Not all conflicts can be resolved that way. In the resolution of conflicts, we h
 $ git merge aCommit
 ...
 Automatic merge failed; fix conflicts and then commit the result.
-$ git merge-tool
+$ git mergetool
 ...
 ```
 
-The git merge-tool command will call an external GUI tool, such as meld, to let us resolve the conflict by hand by selecting parts of the two versions of the file (_current_ and _other_, with usually _ancestor_ also displayed) to keep or reject.
+The git mergetool command will call an external GUI tool, such as meld, to let us resolve the conflict by hand by selecting parts of the two versions of the file (_current_ and _other_, with usually _ancestor_ also displayed) to keep or reject.
 
 However, usual tools are not too good at merging .st files :) or version files the merge driver hasn't managed to merge, so the next step after the merge driver would be to implement a merge tool in Smalltalk which knows how to:
 - Interactively let us merge standard text files
